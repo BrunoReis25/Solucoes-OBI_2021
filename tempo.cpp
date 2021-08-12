@@ -3,11 +3,9 @@
 
 using namespace std;
 
-void calcula_tempo(int *tempo, char evento){
-      
-}
 
-int e_amigo (int num, int(*mat)[2], int tam){
+int e_amigo (int num, int(*mat)[2], int tam){ // verifica se já é um amigo, 
+                                              //se for a função retorna a posição desse amigo.
       
       for(int i = 0; i < tam; i++){
             if(num == mat[i][0]){
@@ -28,8 +26,10 @@ int main(){
       int k = 0;
       for(int i = 0; i < N; i++){
             cin >> eventos[i] >> num[i];
-            if(i < N-1){
-                  if(eventos[i] == 'T'){
+            if(i < N-1){ 
+                  // cria um arranjo do mesmo tamanho do arranjo de entrada, 
+                  //mas que cronometra o tempo até aquele evento.
+                  if(eventos[i] == 'T'){ 
                         tempo[i] = 0;
                         tempo[i+1] = tempo[i-1] + num[i];
                   }
@@ -38,6 +38,7 @@ int main(){
                   }
             }
 
+            // adiciona na matriz apenas uma vez cada amigo.
            if(e_amigo(num[i], amigos, k) == -1 && eventos[i] != 'T') {
                  if( k > 0)
                         if(num[i]  > amigos[k-1][0]){
@@ -62,7 +63,7 @@ int main(){
                  bool achou = false;
                  int posi = e_amigo(num[i], amigos, k);
 
-                 for(int j = i + 1; j < N; j++){//procura a partir do indice a direita de i
+                 for(int j = i + 1; j < N; j++){
 
                        if(num[i] == num[j] && eventos[j] == 'E'){
                              amigos[posi][1] +=  tempo[j] - tempo[i];
