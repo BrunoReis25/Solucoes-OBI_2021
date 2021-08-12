@@ -1,0 +1,1 @@
+Esse repositório contém as minhas soluções para as questões da OBI 2021 nível Sênior.
