@@ -3,11 +3,8 @@
 
 using namespace std;
 
-void calcula_tempo(int *tempo, char evento){
-      
-}
 
-int e_amigo (int num, int(*mat)[2], int tam){
+int e_amigo (int num, int(*mat)[2], int tam){ // é amigo 
       
       for(int i = 0; i < tam; i++){
             if(num == mat[i][0]){
@@ -29,7 +26,9 @@ int main(){
       for(int i = 0; i < N; i++){
             cin >> eventos[i] >> num[i];
             if(i < N-1){
+                  // Calcula o tempo para cada evento, menos para os eventos do tipo T.
                   if(eventos[i] == 'T'){
+                        
                         tempo[i] = 0;
                         tempo[i+1] = tempo[i-1] + num[i];
                   }
