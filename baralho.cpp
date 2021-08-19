@@ -4,7 +4,8 @@
 using namespace std;
 
 int main(){
-      bool naipes[4][13] = {false}, erro[4] = {false};
+      bool naipes[4][13] = {false}, erro[4] = {false};// erro representa os montes 
+                                                      //e se algum deles tem alguma carta faltando
       string cartas;
       
       getline(cin, cartas);
@@ -14,7 +15,8 @@ int main(){
             int num = 10 * (cartas[i - 2] - '0') + (cartas[i - 1] - '0') - 1;
             switch (cartas[i]) {
                   case 'C':
-                        if(naipes[0][num] == true){
+                        if(naipes[0][num] == true){ //se duas cartas iguais foram incluidas,
+                                                    //entao ocorre um erro
                               erro[0] = true;
                         }
                         naipes[0][num] = true;
@@ -41,7 +43,7 @@ int main(){
 
       for(int i = 0; i < 4; i++){
             int cont = 0;
-            if(erro[i] != true){
+            if(erro[i] != true){ // imprime apenas os montes que tem carta faltando
                  for(int j = 0; j < 13; j++){
                         if(naipes[i][j] == false){
                               cont++;
